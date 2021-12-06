@@ -16,13 +16,6 @@ public class PaymentTest {
     DashboardPage dashboardPage = new DashboardPage();
     PaymentPage paymentPage = new PaymentPage();
 
-    @BeforeEach
-    void setUp() {
-        DbUtils.clearTables();
-        open("http://localhost:8080");
-        dashboardPage.buy();
-    }
-
     @BeforeAll
     static void setUpAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -31,6 +24,13 @@ public class PaymentTest {
     @AfterAll
     static void tearDownAll() {
         SelenideLogger.removeListener("allure");
+    }
+
+    @BeforeEach
+    void setUp() {
+        DbUtils.clearTables();
+        open("http://localhost:8080");
+        dashboardPage.buy();
     }
 
     //passed

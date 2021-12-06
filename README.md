@@ -1,4 +1,4 @@
-##Курсовой проект по модулю «Автоматизация тестирования» для профессии «Инженер по тестированию»
+## Курсовой проект по модулю «Автоматизация тестирования» для профессии «Инженер по тестированию»
 Курсовой проект представляет собой автоматизацию тестирования комплексного сервиса,
 взаимодействующего с СУБД и API Банка.
 
@@ -14,7 +14,7 @@
 
 ### **Для запуска MySQL**
 
-- **1.** Выполнить в окне Терминала команду: ```docker-compose -f docker-compose-mysql.yml up```
+- **1.** Выполнить в окне Терминала команду: ```docker-compose up```
 - **2.** Открыть новую вкладку в окне Терминала.
 - **3.** Выполнить в окне Терминала команду: ```java -jar ./artifacts/aqa-shop.jar```
 - **4.** Выполнить команду:```gradle clean test```
@@ -40,37 +40,37 @@
 ### **Запуск тестов**
 **1.** Склонировать [репозиторий](https://github.com/irikras/CourseProject.git) `git clone`;
 
-**2.** Для запуска контейнера с MySql использовать команду `docker-compose up -d`. Параметры для запуска хранятся в файле `docker-compose.yml`;
+**2.** Для запуска контейнера с MySql использовать команду `docker-compose up`. Параметры для запуска хранятся в файле `docker-compose.yml`;
 
 **3.** Приложение запускается на порту 8080;
 
 **4.** Запустить SUT для MySQL:
 
-    java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar ./artifacts/aqa-shop.jar    
+    java -jar ./artifacts/aqa-shop.jar    
         
 **5.** В новой вкладке терминала ввести команду запущенной ранее БД MySQL:
    ```
-   gradlew clean test -Ddb.url=jdbc:mysql://localhost:3306/app 
+   ./gradlew clean test  
    ```
 **6.** После окончания тестов завершить работу приложения (Ctrl+C), удалить контейнеры командой `docker-compose down`.
 
 ### **Подготовка отчета Allure**
 * При необходимости создания отчета тестирования, запустить тесты для БД MysSQL:
   ``` 
-  gradlew clean test -Ddb.url=jdbc:mysql://localhost:3306/app allureReport
+  ./gradlew allureReport
   ```  
 
 * При повторной генерации отчета необходимо запустить тесты командой:    
   ```
-   gradlew test -Ddb.url=jdbc:mysql://localhost:3306/app allureServe
+   ./gradlew allureServe
   ``` 
-Отчет открывается после прохождения тестов автоматически в браузере по умолчанию.
+   Отчет открывается после прохождения тестов автоматически в браузере по умолчанию.
 
 
 ### **Документация**
 
-[План тестирования]()
+[План тестирования](https://github.com/irikras/CourseProject/blob/master/docs/Plan.md)
 
-[Отчёт по итогам тестирования]()
+[Отчёт по итогам тестирования](https://github.com/irikras/CourseProject/blob/master/docs/Report.md)
 
-[Отчёт по итогам автоматизации]()
+[Отчёт по итогам автоматизации](https://github.com/irikras/CourseProject/blob/master/docs/Summary.md)
